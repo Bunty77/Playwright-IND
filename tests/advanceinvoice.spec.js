@@ -26,6 +26,7 @@ test('has title', async ({ page }) => {
   await page.locator("//aside[@class=' cell ']//span[@class=' shell '][normalize-space()='Buy now']").click();
 await page.waitForTimeout(3000);
 await page.close();
+console.log("e");
 
 });
 
