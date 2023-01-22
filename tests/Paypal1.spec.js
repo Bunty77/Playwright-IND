@@ -24,6 +24,7 @@ test('Login With Username And Password With Paypal as Payment Method', async ({ 
   await paymentPage.TermsandConditionClick();
   await paymentPage.ClickBuynow();
   await paymentPage.clickPaypalButton();
+  console.log("hello");
   
   
 });
