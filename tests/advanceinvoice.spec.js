@@ -1,32 +1,29 @@
-// @ts-check
 const { test, expect } = require('@playwright/test');
-const { name } = require('../playwright.config');
+const {  LoginPage  } = require('../Pages/LoginPage');
+const { AddressPage } = require('../Pages/AddressPage');
+const { PaymentPage } = require('../Pages/PaymentPage');
 
-test('has title', async ({ page }) => {
+
+
+
+test('Login With Username And Password With Advance Invoice as Payment Method', async ({ page }) => {
+  
+  const loginPage = new LoginPage(page);
+  const addressPage = new AddressPage(page);
+  const paymentPage = new PaymentPage(page);
+  await loginPage.goto();
+  await loginPage.AdvanceInvoiceBook();
+  await loginPage.ClickCheckout();
+  await loginPage.typeusername();
+  await loginPage.typePassword();
+  await loginPage.Clickloginbutton();
+  await page.waitForTimeout(4000);
+  await addressPage.ClickAddressButton();
+  await page.waitForTimeout(4000);
+  await paymentPage.AdvanceInvoiceRadio();
+  await paymentPage.ClickBuynow();
+  await page.waitForTimeout(4000);
+  console.log("hello");
   
   
-  await page.goto('https://order-qa.springer.com/public/test');
-
-  await page.locator("//span[normalize-space()='Buy Handbuch Transitional Justice - Handbook']").click();
-  await page.waitForTimeout(2000);
-
- // await page.locator("//div[contains(text(),'Continue browsing')]").click();
-
-  await page.locator("//div[contains(text(),'Go to checkout')]").click();
-  
-
-  
-  await page.locator("//input[@id='login-form-email']").fill('navnath.sujgure@springernature.com');
-  await page.locator("//input[@id='login-form-password']").fill('Admin@12345');
-  await page.locator("//form[@name='login-form']//button[@type='submit']").click();
-  await page.waitForTimeout(3000);
-  await page.locator("//span[contains(@class,'shell')]").click();
-  await page.waitForTimeout(3000);
-  await page.locator("//span[normalize-space()='Advance Invoice']").click();
-  await page.locator("//aside[@class=' cell ']//span[@class=' shell '][normalize-space()='Buy now']").click();
-await page.waitForTimeout(3000);
-await page.close();
-console.log("e");
-
 });
-

@@ -12,6 +12,9 @@ const { devices } = require('@playwright/test');
  * @see https://playwright.dev/docs/test-configuration
  * @type {import('@playwright/test').PlaywrightTestConfig}
  */
+
+
+
 const config = {
   testDir: './tests',
   /* Maximum time one test can run for. */
@@ -36,7 +39,8 @@ const config = {
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
 
-    headless:false,
+    headless:true,
+    
     video: 'on',
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
     actionTimeout: 0,
@@ -57,24 +61,22 @@ const config = {
     {
       name: 'chromium',
       use: {
-        headless:false,
-        ...devices['Desktop Chrome'],
-      },
+       ...devices['Desktop Chrome'],
+       },
     },
 
     {
       name: 'firefox',
       use: {
-        headless:false,
         ...devices['Desktop Firefox'],
       },
     },
 
     {
       name: 'webkit',
-      use: {
-        headless:false,
-        ...devices['Desktop Safari'],
+      use: 
+      {
+       ...devices['Desktop Safari'],
       },
     },
 

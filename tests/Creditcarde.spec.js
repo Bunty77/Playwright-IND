@@ -34,3 +34,50 @@ await paymentPage.entercardnumber();
   await paymentPage.SubmitButtoncc();
   await page.waitForTimeout(3000);
 });
+
+
+test('Login With Username And Password With Paypal as Payment Method', async ({ page }) => {
+  
+  const loginPage = new LoginPage(page);
+  const addressPage = new AddressPage(page);
+  const paymentPage = new PaymentPage(page);
+  await loginPage.goto();
+  await loginPage.BookClick();
+  await loginPage.ClickCheckout();
+  await loginPage.typeusername();
+  await loginPage.typePassword();
+  await loginPage.Clickloginbutton();
+  await page.waitForTimeout(4000);
+  await addressPage.ClickAddressButton();
+  await page.waitForTimeout(4000);
+  await paymentPage.PaypalRadioClick();
+  await paymentPage.TermsandConditionClick();
+  await paymentPage.ClickBuynow();
+  await paymentPage.clickPaypalButton();
+  console.log("hello");
+  
+  
+});
+
+
+test('Login With Username And Password With Advance Invoice as Payment Method', async ({ page }) => {
+  
+  const loginPage = new LoginPage(page);
+  const addressPage = new AddressPage(page);
+  const paymentPage = new PaymentPage(page);
+  await loginPage.goto();
+  await loginPage.AdvanceInvoiceBook();
+  await loginPage.ClickCheckout();
+  await loginPage.typeusername();
+  await loginPage.typePassword();
+  await loginPage.Clickloginbutton();
+  await page.waitForTimeout(4000);
+  await addressPage.ClickAddressButton();
+  await page.waitForTimeout(4000);
+  await paymentPage.AdvanceInvoiceRadio();
+  await paymentPage.ClickBuynow();
+  await page.waitForTimeout(4000);
+  console.log("hello");
+  
+  
+});

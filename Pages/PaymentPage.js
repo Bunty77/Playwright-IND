@@ -7,6 +7,7 @@ exports.PaymentPage = class PaymentPage
 
 constructor(page)
 {
+    //PalPal 
     this.page=page;
     this.paypalradio = page.locator("//label[@for='input-payment-method-paypal']//div[contains(@class,'core')]");
     this.understandcheckbox = page.locator("//input[@id='consentCheck']");
@@ -23,6 +24,10 @@ constructor(page)
     this.securitycode=page.frameLocator("//iframe[@id='wp-cl-paymentFormContainer-iframe']").locator("//input[@id='securityCode']");
     this.ccsubmitbutton =page.frameLocator("//iframe[@id='wp-cl-paymentFormContainer-iframe']").locator("//input[@id='submitButton']");
     
+    //Advance Invoice
+
+    this.advanceinvoiceradio = page.locator("//span[normalize-space()='Advance Invoice']");
+
 
 }
 
@@ -92,5 +97,9 @@ async SubmitButtoncc()
     await this.ccsubmitbutton.click();
 }
 
+async AdvanceInvoiceRadio()
+{
+    await this.advanceinvoiceradio.click();
+}
 
 }

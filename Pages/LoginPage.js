@@ -12,6 +12,8 @@ constructor(page)
     this.book = page.locator("//span[normalize-space()='Buy Füchse zähmen - Bundle SoftCover + Ebook']");
     this.checkout = page.locator("//div[contains(text(),'Go to checkout')]");
     this.loginbutton =page.locator("//form[@name='login-form']//button[@type='submit']");
+    this.advanceinvoicebook = page.locator("//span[normalize-space()='Buy Handbuch Transitional Justice - Handbook']");
+
 }
 
 async goto()
@@ -44,6 +46,13 @@ async typePassword()
 async Clickloginbutton()
 {
     await this.loginbutton.click();
+
+
+}
+
+async AdvanceInvoiceBook()
+{
+    await this.advanceinvoicebook.click();
 }
 
 }
