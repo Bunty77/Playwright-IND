@@ -23,7 +23,7 @@ test('Login With Username And Password With Advance Invoice as Payment Method', 
   await paymentPage.AdvanceInvoiceRadio();
   await paymentPage.ClickBuynow();
   await page.waitForTimeout(4000);
-  console.log("hello");
+  console.log("Test Pass");
   
   
 });

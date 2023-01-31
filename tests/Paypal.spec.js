@@ -17,14 +17,15 @@ test('Login With Username And Password With Paypal as Payment Method', async ({ 
   await loginPage.typeusername();
   await loginPage.typePassword();
   await loginPage.Clickloginbutton();
-  await page.waitForTimeout(4000);
+  await page.waitForTimeout(5000);
   await addressPage.ClickAddressButton();
   await page.waitForTimeout(4000);
   await paymentPage.PaypalRadioClick();
   await paymentPage.TermsandConditionClick();
   await paymentPage.ClickBuynow();
   await paymentPage.clickPaypalButton();
-  console.log("hello");
+  console.log("Test Pass");
+  await page.close();
   
   
 });
