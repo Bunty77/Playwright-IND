@@ -15,17 +15,22 @@ test('Login With Username And Password With Advance Invoice as Payment Method', 
   await loginPage.clickcookiebanner();
   await loginPage.AdvanceInvoiceBook();
   await loginPage.ClickCheckout();
-  await loginPage.typeusername();
-  await loginPage.typePassword();
-  await loginPage.Clickloginbutton();
-  await page.waitForTimeout(4000);
+  await loginPage.ClickGuestRadioButton();
+  await loginPage.EnterGuestEmailAddress();
+  await loginPage.ContinueASGuest();
+  await page.waitForTimeout(8000);
+  await addressPage.FirstName();
+  await addressPage.LastName();
+  await addressPage.StreetName();
+  await addressPage.PostalCode();
+  await addressPage.City();
+  await addressPage.Country();
+  await addressPage.CountryPhoneno();
   await addressPage.ClickAddressButton();
-  await page.waitForTimeout(4000);
-  await paymentPage.AdvanceInvoiceRadio();
+  await page.waitForTimeout(12000);
+  await paymentPage.PaypalRadioClick();
   await paymentPage.ClickBuynow();
-  await page.waitForTimeout(4000);
+  await paymentPage.clickPaypalButton();
   console.log("Test Pass");
-  await page.close();
-  
-  
+  await page.waitForTimeout(4000);
 });

@@ -1,0 +1,33 @@
+import { test, expect } from '@playwright/test';
+
+test('test', async ({ page }) => {
+  await page.goto('https://visa.vfsglobal.com/ind/en/deu/login');
+  await page.getByPlaceholder('jane.doe@email.com').click();
+  await page.getByRole('button', { name: 'Accept All Cookies' }).click();
+  await page.getByPlaceholder('jane.doe@email.com').click();
+  await page.getByPlaceholder('jane.doe@email.com').fill('navnath.sujgure@springernature.com');
+  await page.getByPlaceholder('**********').click();
+  await page.getByPlaceholder('**********').fill('Bravo@88');
+  await page.getByRole('button', { name: 'Sign In' }).click();
+  await page.getByRole('button', { name: 'Start New Booking' }).click();
+  await page.locator('#mat-select-value-1').click();
+  await page.getByText('Pune - Visa Application Centre').click();
+  await page.getByText('Select your appointment category').click();
+  await page.getByText('Schengen Visa (stay of max. 90 days or less)').click();
+  await page.locator('#mat-select-value-5').click();
+  await page.getByText('business').click();
+  await page.getByRole('button', { name: 'Continue' }).click();
+  await page.getByPlaceholder('Enter your first name').click();
+  await page.getByPlaceholder('Enter your first name').fill('navnath');
+  await page.getByPlaceholder('Please enter last name.').click();
+  await page.getByPlaceholder('Please enter last name.').fill('sujgure');
+  await page.locator('#mat-select-value-7').click();
+  await page.getByText('Male', { exact: true }).click();
+  await page.locator('#dateOfBirth').click();
+  await page.getByRole('combobox', { name: 'Select year' }).selectOption('1988');
+  await page.getByRole('combobox', { name: 'Select month' }).selectOption('9');
+  await page.getByRole('gridcell', { name: 'Wednesday, September 7, 1988' }).getByText('7').click();
+  await page.locator('#mat-select-value-9').click();
+  await page.getByText('INDIA').click();
+  await page.getByPlaceholder('Enter passport number').click();
+});
