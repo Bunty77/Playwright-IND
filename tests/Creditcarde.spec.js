@@ -25,7 +25,7 @@ test('Login With Username And Password With Credit Card As Payment Method', asyn
   await page.waitForTimeout(2000);
   await paymentPage.ClickBuynow();
   await page.waitForTimeout(7000);
-await paymentPage.entercardnumber();
+  await paymentPage.entercardnumber();
   await paymentPage.CardholderName();
  await page.waitForTimeout(2000);
   await paymentPage.CardholderMonth();
